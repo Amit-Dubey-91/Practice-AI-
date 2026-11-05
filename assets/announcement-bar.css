@@ -1,0 +1,113 @@
+.announcement-bar-section {
+  background-color: var(--announcement-bg, #000000);
+  color: var(--announcement-text, #ffffff);
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.announcement-bar-section.is-dismissed {
+  display: none !important;
+}
+
+.announcement-bar__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 38px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  box-sizing: border-box;
+}
+
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.announcement-bar__text {
+  margin: 0;
+  font-family: var(--font-body, 'Satoshi', sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--announcement-text, #ffffff);
+  letter-spacing: 0;
+}
+
+.announcement-bar__link {
+  color: var(--announcement-text, #ffffff);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+  display: inline;
+}
+
+.announcement-bar__link:hover {
+  opacity: 0.8;
+}
+
+.announcement-bar__link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.announcement-bar__close {
+  position: absolute;
+  right: var(--page-gutter-desktop, 100px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--announcement-text, #ffffff);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.announcement-bar__close:hover {
+  opacity: 0.75;
+}
+
+.announcement-bar__close:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .announcement-bar__close {
+    right: var(--page-gutter-tablet, 40px);
+  }
+}
+
+@media (max-width: 767px) {
+  .announcement-bar__container {
+    min-height: 34px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-inline: var(--page-gutter-mobile, 16px);
+  }
+
+  .announcement-bar__text {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  /* In mobile Figma frame (390px), close button is hidden to ensure clean presentation */
+  .announcement-bar__close {
+    display: none;
+  }
+}
+

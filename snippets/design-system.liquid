@@ -1,0 +1,194 @@
+{% comment %}
+  Global Design System for SHOP.CO
+  Includes:
+  - Font face declarations for Integral CF & Satoshi
+  - Color & size CSS custom properties
+  - Shared button components (.btn, .b-primary, .b-secondary)
+  - Shared container (.page-container)
+  - Shared typography and utility classes
+{% endcomment %}
+
+<!-- Font Preloads -->
+<link rel="preload" href="{{ 'IntegralCF-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ 'Satoshi-Regular.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ 'Satoshi-Medium.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ 'Satoshi-Bold.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+
+<style>
+  @font-face {
+    font-family: 'Integral CF';
+    src: url("{{ 'IntegralCF-Bold.woff2' | asset_url }}") format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Integral CF';
+    src: url("{{ 'IntegralCF-Medium.woff2' | asset_url }}") format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url("{{ 'Satoshi-Regular.woff2' | asset_url }}") format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url("{{ 'Satoshi-Medium.woff2' | asset_url }}") format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url("{{ 'Satoshi-Bold.woff2' | asset_url }}") format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Satoshi';
+    src: url("{{ 'Satoshi-Black.woff2' | asset_url }}") format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    /* Colors from Figma */
+    --color-primary: #000000;
+    --color-secondary: #ffffff;
+    --color-dark: #000000;
+    --color-white: #ffffff;
+    --color-muted-text: rgba(0, 0, 0, 0.6);
+    --color-muted-subtle: rgba(0, 0, 0, 0.4);
+    --color-surface: #F0F0F0;
+    --color-surface-light: #F2F0F1;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-discount: #FF3333;
+    --color-discount-bg: rgba(255, 51, 51, 0.1);
+    --color-star: #FFC633;
+
+    /* Font Families */
+    --font-heading: 'Integral CF', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Container & Layout */
+    --container-max: 1440px;
+    --page-gutter-desktop: 100px;
+    --page-gutter-tablet: 40px;
+    --page-gutter-mobile: 16px;
+
+    /* Radii */
+    --radius-pill: 62px;
+    --radius-card: 20px;
+    --radius-badge: 62px;
+  }
+
+  /* Shared Container */
+  .page-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--page-gutter-desktop);
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1024px) {
+    .page-container {
+      padding-inline: var(--page-gutter-tablet);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .page-container {
+      padding-inline: var(--page-gutter-mobile);
+    }
+  }
+
+  @media (max-width: 390px) {
+    .page-container {
+      padding-inline: var(--page-gutter-mobile);
+    }
+  }
+
+  /* Shared Buttons (.btn, .b-primary, .b-secondary) */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 54px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    border: 1px solid transparent;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .btn:active {
+    transform: scale(0.98);
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  .b-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  .b-primary:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: var(--color-white);
+  }
+
+  .b-secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-border);
+  }
+
+  .b-secondary:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-primary);
+  }
+
+  /* Typography utilities */
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+</style>
+
