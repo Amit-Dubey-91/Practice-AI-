@@ -9,76 +9,227 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "FIND CLOTHES THAT MATCHES YOUR STYLE",
+        "description": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.",
+        "button_label": "Shop Now",
+        "button_link": "",
+        "metric_1_number": "200+",
+        "metric_1_label": "International Brands",
+        "metric_2_number": "2,000+",
+        "metric_2_label": "High-Quality Products",
+        "metric_3_number": "30,000+",
+        "metric_3_label": "Happy Customers",
+        "image": "shopify://shop_images/Rectangle_2_1.png"
+      }
+    },
+    "brands_banner": {
+      "type": "brands-banner",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "brand_versace": {
+          "type": "brand",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/Group_10.png",
+            "brand_name": "Versace",
+            "link": ""
           }
         },
-        "button": {
-          "type": "buttons",
+        "brand_zara": {
+          "type": "brand",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/zara-logo-1_1_e6f66285-7eb4-4d70-9e1c-5fe3086b4d51.png",
+            "brand_name": "Zara",
+            "link": ""
+          }
+        },
+        "brand_gucci": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/gucci-logo-1_1_1_bc52d279-4789-4103-80b4-b682dcf19197.png",
+            "brand_name": "Gucci",
+            "link": ""
+          }
+        },
+        "brand_prada": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/prada-logo-1_1_1.png",
+            "brand_name": "Prada",
+            "link": ""
+          }
+        },
+        "brand_calvin_klein": {
+          "type": "brand",
+          "settings": {
+            "image": "shopify://shop_images/Group_11_da35c976-a874-4937-beb2-a4e4bf6525e0.png",
+            "brand_name": "Calvin Klein",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "brand_versace",
+        "brand_zara",
+        "brand_gucci",
+        "brand_prada",
+        "brand_calvin_klein"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "background_color": "#000000",
+        "accessibility_label": "Featured Brands",
+        "padding_top": 42,
+        "padding_bottom": 42
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "new_arrivals": {
+      "type": "new-arrivals",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
+        "heading": "NEW ARRIVALS",
+        "collection": "batting-gloves",
+        "products_to_show": 4,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
         "columns_mobile": "2",
+        "show_view_all": true,
+        "view_all_label": "View All",
+        "show_bottom_border": true,
+        "padding_top": 84,
+        "padding_bottom": 32
+      }
+    },
+    "new_arrivals_yy9yxQ": {
+      "type": "new-arrivals",
+      "name": "New arrivals",
+      "settings": {
+        "heading": "top selling",
+        "collection": "food-and-drink",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_view_all": true,
+        "view_all_label": "View All",
+        "show_bottom_border": false,
         "padding_top": 44,
-        "padding_bottom": 36
+        "padding_bottom": 40
+      }
+    },
+    "browse_by_style": {
+      "type": "browse-by-style",
+      "blocks": {
+        "style_casual": {
+          "type": "style_card",
+          "settings": {
+            "title": "Casual",
+            "collection": "",
+            "image": "shopify://shop_images/image_11_3.png",
+            "column_span": "span_6",
+            "link": ""
+          }
+        },
+        "style_formal": {
+          "type": "style_card",
+          "settings": {
+            "title": "Formal",
+            "collection": "",
+            "image": "shopify://shop_images/image_13_1_cf22a5b0-9a0b-41b9-a40b-b631989d45eb.png",
+            "column_span": "span_10",
+            "link": ""
+          }
+        },
+        "style_party": {
+          "type": "style_card",
+          "settings": {
+            "title": "Party",
+            "collection": "",
+            "image": "shopify://shop_images/image_12_1_506fc7a7-7cf2-49e7-9b2c-4ac4c329300b.png",
+            "column_span": "span_10",
+            "link": ""
+          }
+        },
+        "style_gym": {
+          "type": "style_card",
+          "settings": {
+            "title": "Gym",
+            "collection": "",
+            "image": "shopify://shop_images/image_14_1_e65013c1-a20f-4c20-87fc-9d9ce79c124f.png",
+            "column_span": "span_6",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "style_casual",
+        "style_formal",
+        "style_party",
+        "style_gym"
+      ],
+      "settings": {
+        "heading": "BROWSE BY DRESS STYLE",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "testimonials_KWrzjg": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_bU6QzT": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "author": "Sarah M.",
+            "verified": true,
+            "review": "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations."
+          }
+        },
+        "testimonial_FGWBm3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "author": "Alex K.",
+            "verified": true,
+            "review": "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
+          }
+        },
+        "testimonial_qJraYK": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "author": "James L.",
+            "verified": true,
+            "review": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+          }
+        },
+        "testimonial_KY4kpi": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "author": "Moo M.",
+            "verified": true,
+            "review": "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_bU6QzT",
+        "testimonial_FGWBm3",
+        "testimonial_qJraYK",
+        "testimonial_KY4kpi"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "heading": "OUR HAPPY CUSTOMERS",
+        "padding_top": 48,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "hero",
+    "brands_banner",
+    "new_arrivals",
+    "new_arrivals_yy9yxQ",
+    "browse_by_style",
+    "testimonials_KWrzjg"
   ]
 }

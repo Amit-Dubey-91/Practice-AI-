@@ -1,0 +1,200 @@
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-section" data-section-id="{{ section.id }}" aria-labelledby="HeroHeading-{{ section.id }}">
+  <div class="page-container hero-section__container">
+    
+    <!-- Left Column: Content & Metrics -->
+    <div class="hero-section__content">
+      <!-- Container 1: Heading, Paragraph, and Button -->
+      <div class="hero-section__text-group">
+        <h1 id="HeroHeading-{{ section.id }}" class="hero-section__heading">
+          {{ section.settings.heading | escape }}
+        </h1>
+
+        {%- if section.settings.description != blank -%}
+          <p class="hero-section__description">
+            {{ section.settings.description | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="hero-section__button-wrapper">
+            <a
+              href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+              class="btn b-primary hero-section__button"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Container 2: Metrics Row -->
+      <div class="hero-section__metrics">
+        {%- if section.settings.metric_1_number != blank -%}
+          <div class="hero-section__metric-item">
+            <span class="hero-section__metric-number">{{ section.settings.metric_1_number | escape }}</span>
+            <span class="hero-section__metric-label">{{ section.settings.metric_1_label | escape }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.metric_1_number != blank and section.settings.metric_2_number != blank -%}
+          <div class="hero-section__metric-divider" aria-hidden="true"></div>
+        {%- endif -%}
+
+        {%- if section.settings.metric_2_number != blank -%}
+          <div class="hero-section__metric-item">
+            <span class="hero-section__metric-number">{{ section.settings.metric_2_number | escape }}</span>
+            <span class="hero-section__metric-label">{{ section.settings.metric_2_label | escape }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.metric_3_number != blank -%}
+          <div class="hero-section__metric-item">
+            <span class="hero-section__metric-number">{{ section.settings.metric_3_number | escape }}</span>
+            <span class="hero-section__metric-label">{{ section.settings.metric_3_label | escape }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Right Column: Models Imagery & Starbursts -->
+    <div class="hero-section__media-wrapper">
+      <div class="hero-section__image-container">
+        <!-- Small Starburst -->
+        <svg
+          class="hero-section__star hero-section__star--small"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Large Starburst -->
+        <svg
+          class="hero-section__star hero-section__star--large"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M50 0C50 27.6142 27.6142 50 0 50C27.6142 50 50 72.3858 50 100C50 72.3858 72.3858 50 100 50C72.3858 50 50 27.6142 50 0Z" fill="currentColor"/>
+        </svg>
+
+        {%- if section.settings.image != blank -%}
+          {%- assign image_alt = section.settings.image.alt | default: section.settings.heading | escape -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag:
+            class: 'hero-section__image',
+            widths: '375, 550, 750, 990, 1200',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: image_alt
+          }}
+        {%- else -%}
+          <img
+            src="{{ 'hero-models.jpg' | asset_url }}"
+            alt="{{ section.settings.heading | escape }}"
+            class="hero-section__image"
+            width="540"
+            height="471"
+            loading="eager"
+            fetchpriority="high"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FIND CLOTHES THAT MATCHES YOUR STYLE"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Metrics"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_number",
+      "label": "Metric 1 number",
+      "default": "200+"
+    },
+    {
+      "type": "text",
+      "id": "metric_1_label",
+      "label": "Metric 1 label",
+      "default": "International Brands"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_number",
+      "label": "Metric 2 number",
+      "default": "2,000+"
+    },
+    {
+      "type": "text",
+      "id": "metric_2_label",
+      "label": "Metric 2 label",
+      "default": "High-Quality Products"
+    },
+    {
+      "type": "text",
+      "id": "metric_3_number",
+      "label": "Metric 3 number",
+      "default": "30,000+"
+    },
+    {
+      "type": "text",
+      "id": "metric_3_label",
+      "label": "Metric 3 label",
+      "default": "Happy Customers"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero banner"
+    }
+  ]
+}
+{% endschema %}
+

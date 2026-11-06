@@ -451,12 +451,47 @@ details[open] > .site-header__nav-link .site-header__chevron {
 
 /* Tablet & Smaller Desktop */
 @media (max-width: 1024px) {
-  .site-header__nav {
-    display: none;
+  .site-header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    min-height: 64px;
   }
 
   .site-header__menu-toggle {
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .site-header__logo-wrapper {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-header__actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .site-header__action-btn {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .site-header__nav {
+    display: none;
   }
 
   .site-header__search-toggle {
@@ -504,35 +539,64 @@ details[open] > .site-header__nav-link .site-header__chevron {
     min-height: 56px;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-inline: 16px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .site-header__menu-toggle {
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .site-header__logo-wrapper {
+    flex-shrink: 0;
   }
 
   .site-header__logo-text {
-    font-size: 26px;
+    font-size: 25.2px;
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   .site-header__actions {
-    gap: 6px;
+    margin-left: auto;
+    gap: 14px;
+  }
+
+  .site-header__action-btn {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .site-header__action-btn svg,
   .site-header__menu-toggle svg {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
+    display: block;
   }
 }
 
 /* Small mobile (<= 390px Figma frame) */
 @media (max-width: 390px) {
   .site-header__container {
-    padding-inline: 16px;
+    gap: 16px;
+    padding: 19px 16px;
   }
-
+.site-header__logo-image{
+  max-width: 128px;
+  max-height: 19px;
+}
   .site-header__logo-text {
-    font-size: 25px;
+    font-size: 25.2px;
   }
 
   .site-header__actions {
-    gap: 10px;
+    gap: 14px;
   }
 }
 

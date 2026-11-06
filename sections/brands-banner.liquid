@@ -1,0 +1,261 @@
+{{ 'brands-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #BrandsBanner-{{ section.id }} {
+    --brands-banner-bg: {{ section.settings.background_color }};
+    --brands-banner-padding-top: {{ section.settings.padding_top }}px;
+    --brands-banner-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<section
+  id="BrandsBanner-{{ section.id }}"
+  class="brands-banner"
+  aria-label="{{ section.settings.accessibility_label | default: 'Featured Brands' | escape }}"
+>
+  <div class="page-container brands-banner__container">
+    {%- if section.blocks.size > 0 -%}
+      {%- for block in section.blocks -%}
+        {%- assign brand_title = block.settings.brand_name | default: 'Brand logo' -%}
+        {%- assign brand_modifier = block.settings.brand_name | downcase | handleize -%}
+        {%- capture logo_classes -%}brands-banner__logo brands-banner__logo--{{ brand_modifier }} brands-banner__logo--{{ forloop.index }}{%- endcapture -%}
+        
+        {%- if block.settings.link != blank -%}
+          <a
+            href="{{ block.settings.link }}"
+            class="brands-banner__item brands-banner__item--{{ brand_modifier }} brands-banner__item--{{ forloop.index }}"
+            aria-label="{{ brand_title | escape }}"
+            {{ block.shopify_attributes }}
+          >
+        {%- else -%}
+          <div class="brands-banner__item brands-banner__item--{{ brand_modifier }} brands-banner__item--{{ forloop.index }}" {{ block.shopify_attributes }}>
+        {%- endif -%}
+
+          {%- if block.settings.image != blank -%}
+            {%- assign image_alt = block.settings.image.alt | default: brand_title | escape -%}
+            {{
+              block.settings.image
+              | image_url: width: 400
+              | image_tag:
+                class: logo_classes,
+                widths: '120, 160, 200, 240, 320, 400',
+                loading: 'lazy',
+                alt: image_alt
+            }}
+          {%- else -%}
+            {%- case brand_modifier -%}
+              {%- when 'versace' -%}
+                <img
+                  src="{{ 'brand-versace.png' | asset_url }}"
+                  alt="Versace"
+                  class="{{ logo_classes }}"
+                  width="122"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- when 'zara' -%}
+                <img
+                  src="{{ 'brand-zara.png' | asset_url }}"
+                  alt="Zara"
+                  class="{{ logo_classes }}"
+                  width="67"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- when 'gucci' -%}
+                <img
+                  src="{{ 'brand-gucci.png' | asset_url }}"
+                  alt="Gucci"
+                  class="{{ logo_classes }}"
+                  width="113"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- when 'prada' -%}
+                <img
+                  src="{{ 'brand-prada.png' | asset_url }}"
+                  alt="Prada"
+                  class="{{ logo_classes }}"
+                  width="141"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- when 'calvin-klein' -%}
+                <img
+                  src="{{ 'brand-calvin-klein.png' | asset_url }}"
+                  alt="Calvin Klein"
+                  class="{{ logo_classes }}"
+                  width="151"
+                  height="32"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <span class="brands-banner__placeholder-text">{{ brand_title | escape }}</span>
+            {%- endcase -%}
+          {%- endif -%}
+
+        {%- if block.settings.link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      <!-- Default Figma Brands when no blocks exist -->
+      <div class="brands-banner__item">
+        <img
+          src="{{ 'brand-versace.png' | asset_url }}"
+          alt="Versace"
+          class="brands-banner__logo brands-banner__logo--versace"
+          width="122"
+          height="32"
+          loading="lazy"
+        >
+      </div>
+      <div class="brands-banner__item">
+        <img
+          src="{{ 'brand-zara.png' | asset_url }}"
+          alt="Zara"
+          class="brands-banner__logo brands-banner__logo--zara"
+          width="67"
+          height="32"
+          loading="lazy"
+        >
+      </div>
+      <div class="brands-banner__item">
+        <img
+          src="{{ 'brand-gucci.png' | asset_url }}"
+          alt="Gucci"
+          class="brands-banner__logo brands-banner__logo--gucci"
+          width="113"
+          height="32"
+          loading="lazy"
+        >
+      </div>
+      <div class="brands-banner__item">
+        <img
+          src="{{ 'brand-prada.png' | asset_url }}"
+          alt="Prada"
+          class="brands-banner__logo brands-banner__logo--prada"
+          width="141"
+          height="32"
+          loading="lazy"
+        >
+      </div>
+      <div class="brands-banner__item">
+        <img
+          src="{{ 'brand-calvin-klein.png' | asset_url }}"
+          alt="Calvin Klein"
+          class="brands-banner__logo brands-banner__logo--calvin-klein"
+          width="151"
+          height="32"
+          loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brands banner",
+  "tag": "section",
+  "class": "section-brands-banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Featured Brands"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 16,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 16,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 44
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Brand logo"
+        },
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand name",
+          "default": "Brand"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (URL)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands banner",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Versace"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Zara"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Gucci"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Prada"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Calvin Klein"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

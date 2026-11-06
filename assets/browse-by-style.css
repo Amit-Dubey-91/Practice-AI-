@@ -1,0 +1,225 @@
+/* ==========================================================================
+   Browse by Dress Style Section Styles
+   Shopify Theme - Matching Figma Desktop (1440px) & Mobile (390px)
+   16-part asymmetrical container grid (Span 6 and Span 10)
+   ========================================================================== */
+
+.browse-by-style {
+  width: 100%;
+  padding-block: var(--browse-padding-top, 40px) var(--browse-padding-bottom, 40px);
+}
+
+.browse-by-style__wrapper {
+  background-color: var(--color-surface, #F0F0F0);
+  border-radius: 40px;
+  padding: 70px 64px 76px 64px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Heading
+   -------------------------------------------------------------------------- */
+.browse-by-style__heading {
+  font-family: var(--font-heading, 'Integral CF', -apple-system, sans-serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  color: var(--color-primary, #000000);
+  margin: 4px 0 59px 0;
+}
+
+/* --------------------------------------------------------------------------
+   16-Column Desktop Grid
+   -------------------------------------------------------------------------- */
+.browse-by-style__grid {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Smaller card: span 6 columns of 16 */
+.browse-by-style__card--span-6 {
+  grid-column: span 6;
+}
+
+/* Bigger card: span 10 columns of 16 */
+.browse-by-style__card--span-10 {
+  grid-column: span 10;
+}
+
+/* --------------------------------------------------------------------------
+   Card Component
+   -------------------------------------------------------------------------- */
+.browse-by-style__card {
+  position: relative;
+  height: 289px;
+  background-color: var(--color-white, #FFFFFF);
+  border-radius: var(--radius-card, 20px);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.browse-by-style__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.browse-by-style__card:focus-visible {
+  outline: 2px solid var(--color-primary, #000000);
+  outline-offset: 4px;
+}
+
+/* Card Title */
+.browse-by-style__card-title {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  z-index: 2;
+  font-family: var(--font-body, 'Satoshi', sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary, #000000);
+  pointer-events: none;
+  max-width: 60%;
+  letter-spacing: 0;
+}
+
+/* Card Media & Image */
+.browse-by-style__card-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.browse-by-style__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.browse-by-style__card:hover .browse-by-style__card-image {
+  transform: scale(1.05);
+}
+
+.browse-by-style__card-placeholder {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  width: 50%;
+  height: 80%;
+  opacity: 0.25;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .browse-by-style__wrapper {
+    padding: 50px 32px 50px 32px;
+    border-radius: 30px;
+  }
+
+  .browse-by-style__heading {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  .browse-by-style__card {
+    height: 240px;
+  }
+
+  .browse-by-style__card-title {
+    font-size: 28px;
+    top: 20px;
+    left: 24px;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .browse-by-style {
+    padding-block: 37px;
+  }
+
+  .browse-by-style__wrapper {
+    border-radius: 20px;
+    padding: 40px 24px 27px 24px;
+  }
+
+  .browse-by-style__heading {
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  .browse-by-style__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .browse-by-style__card,
+  .browse-by-style__card--span-6,
+  .browse-by-style__card--span-10 {
+    grid-column: unset;
+    width: 100%;
+    max-width: 310px;
+    aspect-ratio: 310 / 190;
+    height: auto;
+    border-radius: 20px;
+    margin-inline: auto;
+  }
+
+  .browse-by-style__card-title {
+    font-size: 24px;
+    top: 16px;
+    left: 24px;
+  }
+}
+
+/* Small mobile (max-width: 390px) */
+@media (max-width: 390px) {
+  .browse-by-style__wrapper {
+    padding: 32px clamp(12px, 3vw, 24px) 24px;
+  }
+
+  .browse-by-style__heading {
+    margin: 10px 0 25px;
+  }
+
+  .browse-by-style__card,
+  .browse-by-style__card--span-6,
+  .browse-by-style__card--span-10 {
+    width: 100%;
+    max-width: 310px;
+    aspect-ratio: 310 / 190;
+    height: auto;
+    border-radius: 20px;
+  }
+}
+

@@ -1,0 +1,154 @@
+{{ 'new-arrivals.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'new-arrivals.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  #NewArrivals-{{ section.id }} {
+    --new-arrivals-padding-top: {{ section.settings.padding_top }}px;
+    --new-arrivals-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+{%- assign selected_collection = section.settings.collection -%}
+{%- assign collection_products = selected_collection.products -%}
+{%- if selected_collection == blank and collections.all.products.size > 0 -%}
+  {%- assign collection_products = collections.all.products -%}
+{%- endif -%}
+{%- assign product_limit = section.settings.products_to_show | default: 4 -%}
+
+<section
+  id="NewArrivals-{{ section.id }}"
+  class="new-arrivals"
+  aria-labelledby="NewArrivalsHeading-{{ section.id }}"
+>
+  <div class="page-container new-arrivals__container">
+    {%- if section.settings.heading != blank -%}
+      <h2 id="NewArrivalsHeading-{{ section.id }}" class="new-arrivals__title">
+        {{ section.settings.heading | escape }}
+      </h2>
+    {%- endif -%}
+
+    {% render 'product-grid',
+      products: collection_products,
+      limit: product_limit,
+      columns_desktop: section.settings.columns_desktop,
+      columns_mobile: section.settings.columns_mobile
+    %}
+
+    {%- if section.settings.show_view_all -%}
+      <div class="new-arrivals__view-all-container">
+        <a
+          href="{{ selected_collection.url | default: '/collections/all' }}"
+          class="btn b-secondary new-arrivals__view-all"
+        >
+          {{ section.settings.view_all_label | default: 'View All' | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_bottom_border -%}
+      <hr class="new-arrivals__divider" aria-hidden="true">
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New arrivals",
+  "tag": "section",
+  "class": "section-new-arrivals",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "NEW ARRIVALS"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Number of columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Enable \"View All\" button"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "default": "View All",
+      "label": "\"View All\" button label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_border",
+      "default": true,
+      "label": "Show bottom border divider"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "New arrivals"
+    }
+  ]
+}
+{% endschema %}

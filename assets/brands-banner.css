@@ -1,0 +1,235 @@
+/* ==========================================================================
+   Brands Banner Section - Shopify Theme
+   Matching Figma Desktop (1440px) and Mobile (390px)
+   ========================================================================== */
+
+.brands-banner {
+  width: 100%;
+  background-color: var(--brands-banner-bg, #000000);
+  padding-block: var(--brands-banner-padding-top, 44px) var(--brands-banner-padding-bottom, 44px);
+  overflow: hidden;
+}
+
+.brands-banner__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px 108px;
+  box-sizing: border-box;
+}
+
+.brands-banner__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Interactive link states */
+a.brands-banner__item:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+a.brands-banner__item:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Base Logo Styles */
+.brands-banner__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   1. DESKTOP LOGO MAX-WIDTHS (Default / > 1024px)
+   Adjust individual brand max-widths below:
+   ========================================================================== */
+
+/* Brand 1: Versace */
+.brands-banner__logo--versace,
+.brands-banner__logo--1 {
+  max-width: 166px;
+  max-height: 33px;
+}
+
+/* Brand 2: Zara */
+.brands-banner__logo--zara,
+.brands-banner__logo--2 {
+  max-width: 91px;
+  max-height: 38px;
+}
+
+/* Brand 3: Gucci */
+.brands-banner__logo--gucci,
+.brands-banner__logo--3 {
+  max-width: 156px;
+  max-height: 36px;
+}
+
+/* Brand 4: Prada */
+.brands-banner__logo--prada,
+.brands-banner__logo--4 {
+  max-width: 194px;
+  max-height: 32px;
+}
+
+/* Brand 5: Calvin Klein */
+.brands-banner__logo--calvin-klein,
+.brands-banner__logo--5 {
+  max-width: 206.8px;
+  max-height: 33px;
+}
+
+/* ==========================================================================
+   2. TABLET LOGO MAX-WIDTHS (max-width: 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .brands-banner {
+    padding-block: 40px;
+  }
+
+  .brands-banner__container {
+    justify-content: center;
+    gap: 24px 40px;
+  }
+
+  /* Brand 1: Versace */
+  .brands-banner__logo--versace,
+  .brands-banner__logo--1 {
+    max-width: 140px;
+    max-height: 30px;
+  }
+
+  /* Brand 2: Zara */
+  .brands-banner__logo--zara,
+  .brands-banner__logo--2 {
+    max-width: 80px;
+    max-height: 34px;
+  }
+
+  /* Brand 3: Gucci */
+  .brands-banner__logo--gucci,
+  .brands-banner__logo--3 {
+    max-width: 135px;
+    max-height: 32px;
+  }
+
+  /* Brand 4: Prada */
+  .brands-banner__logo--prada,
+  .brands-banner__logo--4 {
+    max-width: 160px;
+    max-height: 28px;
+  }
+
+  /* Brand 5: Calvin Klein */
+  .brands-banner__logo--calvin-klein,
+  .brands-banner__logo--5 {
+    max-width: 170px;
+    max-height: 30px;
+  }
+}
+
+/* ==========================================================================
+   3. MOBILE LOGO MAX-WIDTHS (max-width: 767px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  .brands-banner {
+    padding-block: 38px;
+  }
+
+  .brands-banner__container {
+    justify-content: center;
+    gap: 20px 32px;
+  }
+
+  /* Brand 1: Versace */
+  .brands-banner__logo--versace,
+  .brands-banner__logo--1 {
+    max-width: 116px;
+    max-height: 24px;
+  }
+
+  /* Brand 2: Zara */
+  .brands-banner__logo--zara,
+  .brands-banner__logo--2 {
+    max-width: 64px;
+    max-height: 26px;
+  }
+
+  /* Brand 3: Gucci */
+  .brands-banner__logo--gucci,
+  .brands-banner__logo--3 {
+    max-width: 108px;
+    max-height: 25px;
+  }
+
+  /* Brand 4: Prada */
+  .brands-banner__logo--prada,
+  .brands-banner__logo--4 {
+    max-width: 126px;
+    max-height: 23px;
+  }
+
+  /* Brand 5: Calvin Klein */
+  .brands-banner__logo--calvin-klein,
+  .brands-banner__logo--5 {
+    max-width: 134px;
+    max-height: 24px;
+  }
+}
+
+/* ==========================================================================
+   4. SMALL MOBILE LOGO MAX-WIDTHS (max-width: 390px)
+   ========================================================================== */
+@media (max-width: 390px) {
+  .brands-banner {
+    padding-block: 40px;
+    margin-bottom: 20px;
+  }
+
+  .brands-banner__container {
+    gap: 20px 34px;
+  }
+
+  /* Brand 1: Versace */
+  .brands-banner__logo--versace,
+  .brands-banner__logo--1 {
+    max-width: 116px;
+    max-height: 24px;
+  }
+
+  /* Brand 2: Zara */
+  .brands-banner__logo--zara,
+  .brands-banner__logo--2 {
+    max-width: 64px;
+    max-height: 26px;
+  }
+
+  /* Brand 3: Gucci */
+  .brands-banner__logo--gucci,
+  .brands-banner__logo--3 {
+    max-width: 108px;
+    max-height: 25px;
+  }
+
+  /* Brand 4: Prada */
+  .brands-banner__logo--prada,
+  .brands-banner__logo--4 {
+    max-width: 126px;
+    max-height: 23px;
+  }
+
+  /* Brand 5: Calvin Klein */
+  .brands-banner__logo--calvin-klein,
+  .brands-banner__logo--5 {
+    max-width: 134px;
+    max-height: 24px;
+  }
+}

@@ -1,0 +1,31 @@
+{% comment %}
+  Reusable Product Grid Component
+  Usage:
+    {% render 'product-grid',
+      products: collection.products,
+      limit: 4,
+      columns_desktop: 4,
+      columns_mobile: 2
+    %}
+{% endcomment %}
+
+{%- assign grid_limit = limit | default: 4 -%}
+{%- assign cols_desktop = columns_desktop | default: 4 -%}
+{%- assign cols_mobile = columns_mobile | default: 2 -%}
+
+<product-grid
+  class="product-grid"
+  data-columns-desktop="{{ cols_desktop }}"
+  data-columns-mobile="{{ cols_mobile }}"
+  style="--grid-desktop-cols: {{ cols_desktop }}; --grid-mobile-cols: {{ cols_mobile }};"
+>
+  {%- if products != blank and products.size > 0 -%}
+    {%- for product in products limit: grid_limit -%}
+      {% render 'product-card', product: product %}
+    {%- endfor -%}
+  {%- else -%}
+    {%- for i in (1..grid_limit) -%}
+      {% render 'product-card', placeholder_index: i %}
+    {%- endfor -%}
+  {%- endif -%}
+</product-grid>

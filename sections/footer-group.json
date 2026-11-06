@@ -8,24 +8,27 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer",
   "type": "footer",
   "sections": {
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_newsletter": true,
+        "newsletter_heading": "STAY UPTO DATE ABOUT OUR LATEST OFFERS",
+        "newsletter_button_label": "Subscribe to Newsletter",
+        "brand_name": "SHOP.CO",
+        "brand_bio": "We have clothes that suits your style and which you're proud to wear. From women to men.",
+        "social_twitter_link": "https://twitter.com",
+        "social_facebook_link": "https://facebook.com",
+        "social_instagram_link": "https://instagram.com",
+        "social_github_link": "https://github.com",
+        "col_1_heading": "COMPANY",
+        "col_2_heading": "HELP",
+        "col_3_heading": "FAQ",
+        "col_4_heading": "RESOURCES",
+        "copyright_text": "Shop.co © 2000-2023, All Rights Reserved",
+        "show_payments": true
       }
     }
   },

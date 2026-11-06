@@ -1,0 +1,345 @@
+/* ==========================================================================
+   Hero Section - Modern Flex & Grid Approach (Minimal Margin & Padding)
+   ========================================================================== */
+
+.hero-section {
+  width: 100%;
+  background-color: var(--color-surface-light, #F2F0F1);
+  overflow: hidden;
+  position: relative;
+  min-height: 663px;
+}
+
+.hero-section__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  box-sizing: border-box;
+  min-height: 663px;
+}
+
+/* --------------------------------------------------------------------------
+   Left Column: Content & Metrics (Flex Column with Gap)
+   -------------------------------------------------------------------------- */
+.hero-section__content {
+  flex: 1;
+  max-width: 596px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  padding-block: 90px;
+  z-index: 2;
+}
+
+.hero-section__text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section__heading {
+  font-family: var(--font-heading, 'Integral CF', sans-serif);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-primary, #000000);
+  margin: 0 0 18px;
+  letter-spacing: 0;
+}
+
+.hero-section__description {
+  font-family: var(--font-body, 'Satoshi', sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-muted-text, rgba(0, 0, 0, 0.6));
+  max-width: 545px;
+  margin: 0 0 26px;
+  letter-spacing: 0;
+}
+
+.hero-section__button-wrapper {
+  display: flex;
+  margin: 0;
+}
+
+.hero-section__button {
+  min-width: 210px;
+  padding: 16px 54px;
+}
+
+/* --------------------------------------------------------------------------
+   Metrics Row (Flex with Gap)
+   -------------------------------------------------------------------------- */
+.hero-section__metrics {
+  display: flex;
+  align-items: stretch;
+  gap: 65px;
+  margin: 0;
+}
+
+.hero-section__metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-section__metric-number {
+  font-family: var(--font-body, 'Satoshi', sans-serif);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary, #000000);
+  margin: 0;
+}
+
+.hero-section__metric-label {
+  font-family: var(--font-body, 'Satoshi', sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-muted-text, rgba(0, 0, 0, 0.6));
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.hero-section__metric-divider {
+  width: 1px;
+  background-color: var(--color-border, rgba(0, 0, 0, 0.1));
+  align-self: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   Right Column: Media & Starbursts (Flex with Relative Positioning)
+   -------------------------------------------------------------------------- */
+.hero-section__media-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: stretch;
+  position: relative;
+  min-height: 500px;
+}
+
+.hero-section__image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.hero-section__image {
+  width: 100%;
+  height: auto;
+  max-height: 663px;
+  object-fit: contain;
+  object-position: bottom right;
+  display: block;
+}
+
+/* Starburst SVGs */
+.hero-section__star {
+  position: absolute;
+  color: var(--color-primary, #000000);
+  z-index: 3;
+  pointer-events: none;
+  display: block;
+}
+
+.hero-section__star--small {
+  top: 45%;
+  left: 10px;
+  width: 56px;
+  height: 56px;
+  animation: heroStarFloat 4s ease-in-out infinite alternate;
+}
+
+.hero-section__star--large {
+  top: 13%;
+  right: -20px;
+  width: 104px;
+  height: 104px;
+  animation: heroStarFloat 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes heroStarFloat {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.06) rotate(4deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Overrides (Flex & Grid Adaptations)
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Intermediate Desktop (<= 1024px) */
+@media (max-width: 1024px) {
+  .hero-section__container {
+    flex-direction: column;
+    min-height: auto;
+    gap: 32px;
+    padding-top: 40px;
+  }
+
+  .hero-section__content {
+    max-width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 36px;
+  }
+
+  .hero-section__heading {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+
+  .hero-section__description {
+    margin-bottom: 28px;
+  }
+
+  .hero-section__media-wrapper {
+    width: 100%;
+    min-height: 400px;
+    justify-content: center;
+  }
+
+  .hero-section__image-container {
+    max-width: 480px;
+  }
+
+  .hero-section__star--small {
+    left: 20px;
+    top: 35%;
+  }
+
+  .hero-section__star--large {
+    right: 20px;
+    top: 5%;
+  }
+}
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+  .hero-section__container {
+    gap: 0px;
+    padding-top: 33px;
+    min-height: auto;
+  }
+
+  .hero-section__content {
+    gap: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .hero-section__heading {
+    font-size: 36px;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+  .hero-section__description {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 19px;
+  }
+
+  .hero-section__button {
+    width: 100%;
+    padding: 16px 24px;
+  }
+
+  /* Mobile Grid for 2+1 Metrics */
+  .hero-section__metrics {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px 24px;
+  }
+
+  .hero-section__metric-item {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-section__metric-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    align-items: flex-start;
+    margin-left: 40px;
+  }
+
+  .hero-section__metric-divider {
+    grid-column: 2;
+    grid-row: 1;
+    height: 48px;
+  }
+
+  .hero-section__metric-item:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero-section__metric-item:nth-child(4) {
+    grid-column: 1 / span 3;
+    grid-row: 2;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-section__metric-number {
+    font-size: 24px;
+  }
+
+  .hero-section__metric-label {
+    font-size: 12px;
+  }
+
+  .hero-section__media-wrapper {
+    min-height: 380px;
+  }
+
+  .hero-section__star--small {
+    width: 44px;
+    height: 44px;
+    left: 10px;
+    top: 30%;
+  }
+
+  .hero-section__star--large {
+    width: 76px;
+    height: 76px;
+    right: 6px;
+    top: 8%;
+  }
+}
+
+/* Small mobile (<= 390px Figma frame) */
+@media (max-width: 390px) {
+  .hero-section__heading {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .hero-section__metrics {
+    gap: 15px 21px;
+  }
+  .hero-section__container{
+    min-height: 853px;
+  }
+  .hero-section__image-container{
+    min-height: 441px;
+  }
+}
+ 
